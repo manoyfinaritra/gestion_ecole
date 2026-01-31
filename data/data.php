@@ -1,5 +1,6 @@
 <?php
 include "../config.php";
+session_start();
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Simulate user data for demonstration purposes
     if (isset($_POST['email']) && isset($_POST['password'])) {
@@ -12,7 +13,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
         if ($user) {
             if (password_verify($password, $user['motdepasse'])) {
-                session_start();
                 $_SESSION["type_admin"] = $user['type_admin'];
 
                 if ($_SESSION['type_admin'] == "assistant") {
@@ -32,11 +32,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     header("location:" . URL . "view/acceuil_etudiant.php");
                 }
             } else {
-                session_start();
                 $_SESSION['flash_error'] = "Mot de passe incorrect.";
                 header("location:" . URL . "view/connexion.php");
                 exit();
             }
         }
     }
+}
+
+if (isset($_POST['deconnexion'])) {
+    session_start();
+    session_unset();
+    session_destroy();
+    require_once("../index.php");
 }

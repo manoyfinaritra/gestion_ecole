@@ -1,4 +1,7 @@
-<?php include "../config.php" ?>
+<?php
+include "../config.php";
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,8 +27,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h3 class="mb-1 text-primary">SIGN IN</h3>
-                        <?php session_start();
-                        if (isset($_SESSION['flash_error'])): ?>
+                        <?php if (isset($_SESSION['flash_error'])): ?>
                         <div class="alert alert-danger"><?= $_SESSION['flash_error'] ?>
                             <button type="button" class="btn-close" data-bs-dismiss="alert" data-bs-target="#my-alert"
                                 aria-label="Close"></button>

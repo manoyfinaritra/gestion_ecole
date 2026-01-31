@@ -1,9 +1,10 @@
-<?php session_start(); 
-if(!isset($_SESSION['type_admin']) || $_SESSION['type_admin'] != 'assistant'){
-    header("location:".URL."view/connexion.php");
+<?php
+include "../config.php";
+session_start();
+if (!isset($_SESSION['type_admin']) || $_SESSION['type_admin'] != 'assistant') {
+    header("location:" . URL . "view/connexion.php");
     exit();
-}
-include "../config.php"    ?>
+}    ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,12 +18,13 @@ include "../config.php"    ?>
 
 <body>
     <?php include "../view/navbar.php" ?>
+
     <div class="container-fluid">
         <div class="row">
-            <div class="col text-center border bg-primary" id="etudiant">
+            <div class="col text-center bg-primary " id="etudiant">
                 <h5 class=" text-white">Etudiant</h5>
             </div>
-            <div class="col text-center border bg-secondary" id="enseignant">
+            <div class="col text-center  bg-secondary" id="enseignant">
                 <h5 class=" text-white">Enseignant</h5>
             </div>
         </div>

@@ -33,9 +33,10 @@
                     <a class="nav-link disabled" aria-disabled="true">Link</a>
                 </li>
             </ul>
-            <div>
-                <button class=" btn btn-danger">Deconnexion</button>
-            </div>
+            <form action="<?= URL ?>data/data.php" method="POST">
+                <button class=" btn btn-danger" name="deconnexion"
+                    onclick=" return confirm('Vous vnoulez vraiment deconecter ?')">Deconnexion</button>
+            </form>
         </div>
     </div>
 </nav>
