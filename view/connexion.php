@@ -1,4 +1,4 @@
-<?php include "./url.php" ?>
+<?php include "../url.php" ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,13 +41,12 @@
                                     </div>
                                 </div>
                                 <div class="col-6 text-end">
-                                    <a href="forgot.html">Forgot your password?</a>
+                                    <a href="<?= URL ?>view/forgot.php">Forgot your password?</a>
                                 </div>
                             </div>
                             <div class="my-4">
                                 <a href="../index.html" class="btn btn-linear-primary btn-rounded w-100">Sign in</a>
-                            </div>
-                            <p>New member? <a href="signup.html" id="create_account">Create account</a></p>
+                            </div>	
                         </form>
                     </div>
                 </div>
