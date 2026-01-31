@@ -1,4 +1,8 @@
 <?php session_start(); 
+if(!isset($_SESSION['type_admin']) || $_SESSION['type_admin'] != 'assistant'){
+    header("location:".URL."view/connexion.php");
+    exit();
+}
 include "../config.php"    ?>
 <!DOCTYPE html>
 <html lang="en">
