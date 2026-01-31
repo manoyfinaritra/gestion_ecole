@@ -24,13 +24,14 @@
                 <div class="card">
                     <div class="card-body">
                         <h3 class="mb-1 text-primary">SIGN IN</h3>
-                        <?php if (isset($_GET['erreur'])): ?>
-                        <div class="alert alert-danger"><?= $_GET['erreur'] ?>
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" data-bs-target="#my-alert"
-                                aria-label="Close"></button>
-                        </div>
-
-                        <?php endif; ?>
+                        <?php session_start();
+                        if (isset($_SESSION['flash_error'])): ?>
+                            <div class="alert alert-danger"><?= $_SESSION['flash_error'] ?>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" data-bs-target="#my-alert"
+                                    aria-label="Close"></button>
+                            </div>
+                        <?php unset($_SESSION['flash_error']);
+                        endif; ?>
                         <form action="<?= URL ?>data/data.php" method="POST">
                             <div class="mb-3">
                                 <input type="email" name="email" class="form-control" placeholder="Email" required>

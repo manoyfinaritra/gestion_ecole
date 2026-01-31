@@ -32,7 +32,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     header("location:" . URL . "view/acceuil_etudiant.php");
                 }
             } else {
-                header("location:" . URL . "view/connexion.php?erreur=motdepasse_incorrect");
+                session_start();
+                $_SESSION['flash_error'] = "Mot de passe incorrect.";
+                header("location:" . URL . "view/connexion.php");
+                exit();
             }
         }
     }
