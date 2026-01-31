@@ -1,3 +1,3 @@
 <?php
-const URL = 'http://localhost/gestion-de-cole/';
+const URL = 'http://localhost:8090/G_scolaire/';
 ?>

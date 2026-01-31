@@ -6,33 +6,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page || Connexion</title>
-    <link rel="stylesheet" href="<?= URL ?>assets/css/bootstrap.css">
-    <link rel="stylesheet" href="<?= URL ?>assets/css/bs-icons/icons.css">
-    <link rel="stylesheet" href="<?= URL ?>assets/css/connexion.css">
+
+    
+    <link rel="stylesheet" href="<?= URL ?>assets/Bootstrap/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?= URL ?>assets/Bootstrap/fontawesome/css/all.css">
+	<link rel="stylesheet" href="<?= URL ?>assets/Bootstrap/lineawesome/css/line-awesome.min.css">
+    <link rel="stylesheet" href="<?= URL ?>assets/Bootstrap/css/Dark.css">
+    <link rel="stylesheet" href="<?= URL ?>assets/Bootstrap/css/White.css">
+    
+
+	
 </head>
 
 <body>
+
     <div class="container">
-        <div class="row">
-            <div class="col-md-6 offset-md-3 form-container mt-5 p-4 shadow-lg">
-                <form action="">
-                    <h3 class="text-center">Connexion</h3>
-                    <div class="form-group">
-                        <label for="email" class=" form-label">Email :</label>
-                        <input type="text" class=" form-control" name="email" placeholder="entrer votre email">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-7 col-lg-5">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="mb-5">SIGN IN</h3>
+                        <form>
+                            <div class="mb-3">
+                                <input type="email" name="email" class="form-control" placeholder="Email" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="password" name="password" class="form-control" placeholder="Password" required>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 text-start">
+                                    <div class="form-check ms-2">
+                                        <input type="checkbox" class="form-check-input" id="remember">
+                                        <label class="form-check-label ms-2" for="remember">Remember</label>
+                                    </div>
+                                </div>
+                                <div class="col-6 text-end">
+                                    <a href="forgot.html">Forgot your password?</a>
+                                </div>
+                            </div>
+                            <div class="my-4">
+                                <a href="../index.html" class="btn btn-linear-primary btn-rounded w-100">Sign in</a>
+                            </div>
+                            <p>New member? <a href="signup.html" id="create_account">Create account</a></p>
+                        </form>
                     </div>
-                    <div class="form-group">
-                        <label for="motdepasse" class=" form-label">Mot de passe :</label>
-                        <input type="password" class=" form-control" name="motdepasse"
-                            placeholder="entrer votre mot de passe">
-                    </div>
-                    <div class=" mt-3">
-                        <button class=" btn btn-primary">Connexion</button>
-                    </div>
-                </form>
+                </div>
             </div>
         </div>
     </div>
+    
+<script scr="assets/js/script.js"></script>
 </body>
 
 </html>
