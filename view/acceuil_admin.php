@@ -15,18 +15,21 @@ include "../config.php"    ?>
     <?php include "../view/navbar.php" ?>
     <div class="container-fluid">
         <div class="row">
-            <div class="col text-center border bg-primary">
-                <h4 class=" text-white">Etudiant</h4>
+            <div class="col text-center border bg-primary" id="etudiant">
+                <h5 class=" text-white">Etudiant</h5>
             </div>
-            <div class="col text-center border bg-secondary">
-                <h4 class=" text-white">Enseignant</h4>
+            <div class="col text-center border bg-secondary" id="enseignant">
+                <h5 class=" text-white">Enseignant</h5>
             </div>
         </div>
     </div>
 
-    <div class="container-fluid">
+
+
+    <div class=" container-fluid pointer-event" id="etudiant_section">
         <div class="row">
             <div class="col-12 col-md-6">
+                <h1>page etudiant</h1>
                 <form class=" mt-3 border p-3">
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Email address</label>
@@ -47,7 +50,16 @@ include "../config.php"    ?>
         </div>
     </div>
 
+    <div class=" container-fluid" style="display: none;" id="enseignant_section">
+        <div class="row">
+            <div class="col">
+                <h1>page enseignant</h1>
+            </div>
+        </div>
+    </div>
+    <script src="<?= URL ?>assets/js/jquery.js"></script>
     <script src="<?= URL ?>assets/js/bootstrap.js"></script>
+    <script src="<?= URL ?>assets/js/acceuil_admin.js"></script>
 </body>
 
 </html>

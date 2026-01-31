@@ -26,10 +26,10 @@
                         <h3 class="mb-1 text-primary">SIGN IN</h3>
                         <?php session_start();
                         if (isset($_SESSION['flash_error'])): ?>
-                            <div class="alert alert-danger"><?= $_SESSION['flash_error'] ?>
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" data-bs-target="#my-alert"
-                                    aria-label="Close"></button>
-                            </div>
+                        <div class="alert alert-danger"><?= $_SESSION['flash_error'] ?>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" data-bs-target="#my-alert"
+                                aria-label="Close"></button>
+                        </div>
                         <?php unset($_SESSION['flash_error']);
                         endif; ?>
                         <form action="<?= URL ?>data/data.php" method="POST">
@@ -55,7 +55,7 @@
                                 <button type="submit" class="btn btn-linear-primary btn-rounded w-100">Sign
                                     in</button>
                             </div>
-                            <p>New member? <a href="signup.html" id="create_account">Create account</a></p>
+
                         </form>
                     </div>
                 </div>
