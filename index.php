@@ -1,4 +1,3 @@
 <?php
-
-require("view/connexion.php");
+ header("location: ./view/connexion.php");
 ?>
