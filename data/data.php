@@ -1,6 +1,6 @@
 <?php
 include "../config.php";
-session_start();
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Simulate user data for demonstration purposes
     if (isset($_POST['email']) && isset($_POST['password'])) {
@@ -13,6 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
         if ($user) {
             if (password_verify($password, $user['motdepasse'])) {
+                session_start();
                 $_SESSION["type_admin"] = $user['type_admin'];
 
                 if ($_SESSION['type_admin'] == "assistant") {
@@ -38,11 +39,42 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             }
         }
     }
+    if (isset($_POST['deconnexion'])) {
+        session_start();
+        session_unset();
+        session_destroy();
+        require_once("../index.php");
+    }
+    if(isset($_POST['ajout_etudiant'])){
+        $nom = trim(htmlspecialchars(($_POST['nom'])));
+        $prenom = trim(htmlspecialchars(($_POST['prenom'])));
+        $email = trim(htmlspecialchars(($_POST['email'])));
+        $genre = trim(htmlspecialchars(($_POST['genre'])));
+        $classe = trim(htmlspecialchars(($_POST['classe'])));
+        $type_admin = trim(htmlspecialchars(($_POST['type_admin'])));
+        $motdepasse = trim(htmlspecialchars(($_POST['motdepasse'])));
+        $motdepasse_hash = password_hash($motdepasse, PASSWORD_DEFAULT);
+        addUsers($nom,$prenom,$email,$motdepasse_hash,$type_admin,$connexion);
+        $sql =  "INSERT INTO etudiant (nom,prenom,email,genre,classe,type_admin,motdepasse) VALUE (?,?,?,?,?,?,?)";
+        $stmt = $connexion->prepare($sql);
+        $stmt->execute([$nom,$prenom,$email,$genre,$classe,$type_admin,$motdepasse_hash]);
+         header("location:" . URL . "view/acceuil_admin.php");
+    }
 }
 
-if (isset($_POST['deconnexion'])) {
-    session_start();
-    session_unset();
-    session_destroy();
-    require_once("../index.php");
+
+function addUsers($nom,$prenom,$email,$motdepasse,$type_admin,$connexion){
+    $sql = "INSERT INTO users (nom,prenom,email,motdepasse,type_admin) VALUE (?,?,?,?,?)";
+    $stmt = $connexion->prepare($sql);
+    $stmt->execute([$nom,$prenom,$email,$motdepasse,$type_admin]);
 }
+
+
+
+   function select_etudiants($connexion){
+     $sql = "SELECT * FROM etudiant";
+    $stmt = $connexion->prepare($sql);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+   }
+   $all_etudiants = select_etudiants($connexion);

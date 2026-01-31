@@ -1,4 +1,4 @@
 <?php
 
-require_once("view/connexion.php");
+require("view/connexion.php");
 ?>
