@@ -7,15 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page || Connexion</title>
 
-    
+
     <link rel="stylesheet" href="<?= URL ?>assets/Bootstrap/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?= URL ?>assets/Bootstrap/fontawesome/css/all.css">
-	<link rel="stylesheet" href="<?= URL ?>assets/Bootstrap/lineawesome/css/line-awesome.min.css">
+    <link rel="stylesheet" href="<?= URL ?>assets/Bootstrap/lineawesome/css/line-awesome.min.css">
     <link rel="stylesheet" href="<?= URL ?>assets/Bootstrap/css/Dark.css">
     <link rel="stylesheet" href="<?= URL ?>assets/Bootstrap/css/White.css">
-    
 
-	
 </head>
 
 <body>
@@ -25,13 +23,14 @@
             <div class="col-12 col-md-7 col-lg-5">
                 <div class="card">
                     <div class="card-body">
-                        <h3 class="mb-5">SIGN IN</h3>
-                        <form>
+                        <h3 class="mb-5 text-primary">SIGN IN</h3>
+                        <form action="<?= URL ?>data/data.php" method="POST">
                             <div class="mb-3">
                                 <input type="email" name="email" class="form-control" placeholder="Email" required>
                             </div>
                             <div class="mb-3">
-                                <input type="password" name="password" class="form-control" placeholder="Password" required>
+                                <input type="password" name="password" class="form-control" placeholder="Password"
+                                    required>
                             </div>
                             <div class="row">
                                 <div class="col-6 text-start">
@@ -45,7 +44,7 @@
                                 </div>
                             </div>
                             <div class="my-4">
-                                <a href="../index.html" class="btn btn-linear-primary btn-rounded w-100">Sign in</a>
+                                <button type="submit" class="btn btn-linear-primary btn-rounded w-100">Sign in</button>
                             </div>
                             <p>New member? <a href="signup.html" id="create_account">Create account</a></p>
                         </form>
@@ -54,8 +53,8 @@
             </div>
         </div>
     </div>
-    
-<script scr="assets/js/script.js"></script>
+
+    <script scr="assets/js/script.js"></script>
 </body>
 
 </html>
