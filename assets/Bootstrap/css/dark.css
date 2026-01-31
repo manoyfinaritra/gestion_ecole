@@ -1,0 +1,23 @@
+
+ /** 1. Font Color Dark CSS **/
+:root{
+    --font-color-nav: #818896;
+    --bg-card:#243042;
+    --bg-color: #1d2635;
+    --bg-sidebar-color: #243042;
+    --line-color: #2e3544;
+    --bg-submenu-sidebar-color: #344052;
+    --bg-color-2: #4d8af0;
+    --font-color-active: #f7f7f8;
+    --font-color: #f7f7f8;
+    --secondary-color: #818cab;
+    --color:#243042;
+    --primary-color: #9A97F3;
+}
+
+/** Default CSS **/
+[data-theme="dark"] body {
+    background-color: var(--bg-color);
+    color: var(--font-color);
+    line-height: 1.5;
+}
