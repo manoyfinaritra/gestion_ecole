@@ -23,7 +23,14 @@
             <div class="col-12 col-md-7 col-lg-5">
                 <div class="card">
                     <div class="card-body">
-                        <h3 class="mb-5 text-primary">SIGN IN</h3>
+                        <h3 class="mb-1 text-primary">SIGN IN</h3>
+                        <?php if (isset($_GET['erreur'])): ?>
+                        <div class="alert alert-danger"><?= $_GET['erreur'] ?>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" data-bs-target="#my-alert"
+                                aria-label="Close"></button>
+                        </div>
+
+                        <?php endif; ?>
                         <form action="<?= URL ?>data/data.php" method="POST">
                             <div class="mb-3">
                                 <input type="email" name="email" class="form-control" placeholder="Email" required>
@@ -44,7 +51,8 @@
                                 </div>
                             </div>
                             <div class="my-4">
-                                <button type="submit" class="btn btn-linear-primary btn-rounded w-100">Sign in</button>
+                                <button type="submit" class="btn btn-linear-primary btn-rounded w-100">Sign
+                                    in</button>
                             </div>
                             <p>New member? <a href="signup.html" id="create_account">Create account</a></p>
                         </form>
@@ -53,8 +61,8 @@
             </div>
         </div>
     </div>
-
-    <script scr="assets/js/script.js"></script>
+    <script src="<?= URL ?>assets/js/bootstrap.js"></script>
+    <script src="<?= URL ?>assets/js/script.js"></script>
 </body>
 
 </html>
