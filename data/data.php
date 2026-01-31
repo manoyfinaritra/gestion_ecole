@@ -3,14 +3,15 @@ include "../config.php";
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Simulate user data for demonstration purposes
     if (isset($_POST['email']) && isset($_POST['password'])) {
+        $email = trim(htmlspecialchars($_POST['email']));
+        $password = trim(htmlspecialchars($_POST['password']));
 
         $sql = "SELECT * FROM users WHERE email = ?";
         $stmt = $connexion->prepare($sql);
-        $stmt->execute([$_POST['email']]);
+        $stmt->execute([$email]);
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
-        
         if ($user) {
-            if (password_verify($_POST['password'], $user['motdepasse'])) {
+            if (password_verify($password, $user['motdepasse'])) {
                 session_start();
                 $_SESSION["type_admin"] = $user['type_admin'];
 
@@ -31,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     header("location:" . URL . "view/acceuil_etudiant.php");
                 }
             } else {
-                header("location:" . URL . "view/connexion.php?error=motdepasse_incorrect");
+                header("location:" . URL . "view/connexion.php?erreur=motdepasse_incorrect");
             }
         }
     }
